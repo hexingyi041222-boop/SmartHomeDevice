@@ -1,0 +1,36 @@
+{
+  "name": "smart-home-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "智能家居控制系统前端 - Vue 3 + Element Plus + MQTT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "axios": "^1.6.7",
+    "echarts": "^5.5.0",
+    "element-plus": "^2.5.6",
+    "gsap": "^3.15.0",
+    "mqtt": "^5.3.5",
+    "pinia": "^2.1.7",
+    "three": "^0.184.0",
+    "vanta": "^0.5.24",
+    "vue": "^3.4.15",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@types/three": "^0.184.1",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "sass": "^1.70.0",
+    "unplugin-auto-import": "^0.17.5",
+    "unplugin-vue-components": "^0.26.0",
+    "vite": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

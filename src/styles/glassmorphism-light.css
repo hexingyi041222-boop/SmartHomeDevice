@@ -1,0 +1,196 @@
+/**
+ * Light Glassmorphism Theme
+ * 明亮玻璃态 - 智能家居控制面板
+ */
+
+:root {
+  --lg-text: #1a1a2e;
+  --lg-text-muted: #4a4a68;
+  --lg-text-soft: #6b6b8a;
+  --lg-glass-bg: rgba(255, 255, 255, 0.5);
+  --lg-glass-bg-strong: rgba(255, 255, 255, 0.65);
+  --lg-glass-border: rgba(255, 255, 255, 0.85);
+  --lg-glass-line: rgba(200, 210, 230, 0.6);
+  --lg-blur: blur(16px);
+  --lg-radius: 24px;
+  --lg-radius-sm: 16px;
+  --lg-shadow: 0 4px 24px rgba(26, 26, 46, 0.06);
+  --lg-shadow-hover: 0 12px 40px rgba(26, 26, 46, 0.12);
+  --lg-accent-blue: #5b8def;
+  --lg-accent-purple: #9b7ede;
+  --lg-accent-cyan: #5ecbd6;
+  --lg-accent-rose: #f07178;
+  --lg-accent-amber: #f5a623;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: var(--lg-text, #1a1a2e);
+  -webkit-font-smoothing: antialiased;
+}
+
+.vanta-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+}
+
+.lg-glass {
+  background: var(--lg-glass-bg);
+  backdrop-filter: var(--lg-blur);
+  -webkit-backdrop-filter: var(--lg-blur);
+  border: 1px solid var(--lg-glass-line);
+  border-radius: var(--lg-radius);
+  box-shadow: var(--lg-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lg-glass:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--lg-shadow-hover);
+}
+
+.lg-glass--static:hover {
+  transform: none;
+}
+
+.lg-glass__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 0;
+}
+
+.lg-glass__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--lg-text);
+}
+
+.lg-glass__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: var(--lg-glass-bg-strong);
+  border: 1px solid var(--lg-glass-line);
+  color: var(--lg-accent-blue);
+}
+
+.lg-glass__body {
+  padding: 16px 24px 24px;
+}
+
+.lg-metric {
+  background: var(--lg-glass-bg);
+  backdrop-filter: var(--lg-blur);
+  -webkit-backdrop-filter: var(--lg-blur);
+  border: 1px solid var(--lg-glass-line);
+  border-radius: var(--lg-radius);
+  box-shadow: var(--lg-shadow);
+  padding: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.lg-metric:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--lg-shadow-hover);
+}
+
+.lg-metric__label {
+  font-size: 14px;
+  color: var(--lg-text-muted);
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+
+.lg-metric__value {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--lg-text);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.lg-metric__unit {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--lg-text-soft);
+  margin-left: 4px;
+}
+
+.lg-metric__icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lg-metric--temp .lg-metric__icon {
+  background: rgba(240, 113, 120, 0.15);
+  color: var(--lg-accent-rose);
+}
+
+.lg-metric--humi .lg-metric__icon {
+  background: rgba(91, 141, 239, 0.15);
+  color: var(--lg-accent-blue);
+}
+
+.lg-metric--light .lg-metric__icon {
+  background: rgba(245, 166, 35, 0.15);
+  color: var(--lg-accent-amber);
+}
+
+.lg-table {
+  --el-table-bg-color: transparent;
+  --el-table-tr-bg-color: transparent;
+  --el-table-header-bg-color: rgba(255, 255, 255, 0.45);
+  --el-table-row-hover-bg-color: rgba(91, 141, 239, 0.06);
+  --el-table-border-color: var(--lg-glass-line);
+  --el-table-text-color: var(--lg-text);
+  --el-table-header-text-color: var(--lg-text-muted);
+  border-radius: var(--lg-radius-sm);
+  overflow: hidden;
+}
+
+.el-button--primary {
+  --el-button-bg-color: var(--lg-accent-blue);
+  --el-button-border-color: var(--lg-accent-blue);
+}
+
+.el-switch.is-checked .el-switch__core {
+  background-color: var(--lg-accent-blue);
+  border-color: var(--lg-accent-blue);
+}

@@ -1,0 +1,33 @@
+<svg viewBox="0 0 140.845 91.8325" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="140.845215" height="91.832520" fill="none" customFrame="#000000">
+	<defs>
+		<g id="pixso_custom_effect_1">
+			<effect x="0.000000" y="4.000000" visibility="visible" fill="rgb(0,0,0)" fill-opacity="0.25" effectType="dropShadow" stdDeviation="4" radius="0" />
+		</g>
+		<filter id="filter_1" width="140.845215" height="91.832520" x="0.000000" y="0.000000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_1)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix" />
+			<feColorMatrix result="hardAlpha" in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0 " />
+			<feOffset dx="0.000000" dy="4.000000" in="hardAlpha" />
+			<feGaussianBlur stdDeviation="1.33333337" />
+			<feComposite k2="-1" k3="1" in2="hardAlpha" operator="out" />
+			<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0 " />
+			<feBlend result="effect_dropShadow_1" in2="BackgroundImageFix" mode="normal" />
+			<feBlend result="shape" in="SourceGraphic" in2="effect_dropShadow_1" mode="normal" />
+		</filter>
+	</defs>
+	<g id="组合 7" filter="url(#filter_1)">
+		<path id="椭圆 7" d="M0 13.3938C0 6.45197 7.36601 0 11.6429 0C15.9197 0 15.4878 6.45197 15.4878 13.3938C15.4878 20.3357 14.443 25.362 10.4873 27.2572C3.53117 29.311 0 20.3357 0 13.3938Z" fill="rgb(255,255,255)" fill-opacity="0.5" fill-rule="evenodd" transform="matrix(-0.868494,-0.4957,-0.515388,0.856957,91.3857,12.8501)" />
+		<g id="组合 6">
+			<path id="椭圆 5" d="M0 13.4284C0 6.46861 7.36601 0 11.6429 0C15.9197 0 15.4878 6.46861 15.4878 13.4284C15.4878 20.3882 15.1138 26.8223 11.5631 25.7067C8.01236 24.5911 0 20.3882 0 13.4284Z" fill="rgb(255,255,255)" fill-opacity="0.5" fill-rule="evenodd" transform="matrix(0.940943,-0.338565,0.357593,0.933878,55.1111,5.2478)" />
+		</g>
+		<g id="组合 9">
+			<path id="椭圆 9" d="M0 22.6021C0 10.8877 11.4582 0 18.1111 0C24.764 0 24.0921 10.8877 24.0921 22.6021C24.0921 34.3165 22.4669 42.7984 16.3135 45.9965C5.49293 49.4623 0 34.3165 0 22.6021Z" fill="rgb(255,255,255)" fill-opacity="0.699999988" fill-rule="evenodd" transform="matrix(-0.766044,-0.642788,-0.65826,0.75279,107.635,27.554)" />
+		</g>
+		<g id="组合 11">
+			<path id="椭圆 11" d="M0 35.1588C0 16.9364 18.0058 0 28.4603 0C38.9148 0 37.8591 16.9364 37.8591 35.1588C37.8591 53.3812 35.3052 66.5752 25.6355 71.5501C8.63175 76.9413 0 53.3812 0 35.1588Z" fill="rgb(255,255,255)" fill-rule="evenodd" transform="matrix(-0.499727,-0.866183,-0.875883,0.482523,140.845,56.9299)" />
+		</g>
+		<g id="组合 8">
+			<path id="椭圆 8" d="M0 23.2759C0 11.2123 12.2767 0 19.4048 0C26.5328 0 25.813 11.2123 25.813 23.2759C25.813 35.3395 25.1897 46.492 19.2718 44.5583C13.3539 42.6246 0 35.3395 0 23.2759Z" fill="rgb(255,255,255)" fill-opacity="0.699999988" fill-rule="evenodd" transform="matrix(0.768575,-0.63976,0.655545,0.755156,31,21.6938)" />
+		</g>
+		<path id="椭圆 10" d="M0 35.809C0 17.2496 18.8243 0 29.754 0C40.6837 0 39.5799 17.2496 39.5799 35.809C39.5799 54.3684 38.6243 71.5261 29.5501 68.5512C20.476 65.5764 0 54.3684 0 35.809Z" fill="rgb(255,255,255)" fill-rule="evenodd" transform="matrix(0.499727,-0.866183,0.876049,0.482221,0,53.2549)" />
+	</g>
+</svg>

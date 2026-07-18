@@ -1,0 +1,165 @@
+/* 智能家居单页仪表盘 - 全局科技感主题 */
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.85);
+  --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.08);
+  --glass-shadow-hover: 0 16px 48px rgba(31, 38, 135, 0.14);
+  --accent-blue: #3b82f6;
+  --accent-cyan: #06b6d4;
+  --accent-purple: #8b5cf6;
+  --accent-orange: #f59e0b;
+  --accent-rose: #f43f5e;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--glass-shadow-hover);
+}
+
+.glass-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px 0;
+}
+
+.glass-card__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.glass-card__title-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.12));
+  color: var(--accent-blue);
+}
+
+.glass-card__body {
+  padding: 16px 22px 22px;
+}
+
+.tech-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: #f8fafc;
+  overflow: hidden;
+}
+
+.tech-bg__gradient {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  animation: floatOrb 18s ease-in-out infinite;
+}
+
+.tech-bg__gradient--1 {
+  width: 55vw;
+  height: 55vw;
+  top: -15%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.35), transparent 70%);
+}
+
+.tech-bg__gradient--2 {
+  width: 45vw;
+  height: 45vw;
+  top: 20%;
+  right: -12%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.28), transparent 70%);
+  animation-delay: -6s;
+}
+
+.tech-bg__gradient--3 {
+  width: 40vw;
+  height: 40vw;
+  bottom: -15%;
+  left: 30%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.25), transparent 70%);
+  animation-delay: -12s;
+}
+
+.tech-bg__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+
+.tech-bg__particles span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.35);
+  animation: particleDrift 12s linear infinite;
+}
+
+.tech-bg__particles span:nth-child(1) { top: 15%; left: 20%; animation-duration: 14s; }
+.tech-bg__particles span:nth-child(2) { top: 45%; left: 75%; animation-duration: 18s; animation-delay: -3s; }
+.tech-bg__particles span:nth-child(3) { top: 70%; left: 40%; animation-duration: 16s; animation-delay: -7s; }
+.tech-bg__particles span:nth-child(4) { top: 25%; left: 60%; animation-duration: 20s; animation-delay: -5s; }
+.tech-bg__particles span:nth-child(5) { top: 80%; left: 15%; animation-duration: 15s; animation-delay: -9s; }
+.tech-bg__particles span:nth-child(6) { top: 55%; left: 90%; animation-duration: 17s; animation-delay: -2s; }
+
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(3%, 2%) scale(1.05); }
+  66% { transform: translate(-2%, 3%) scale(0.98); }
+}
+
+@keyframes particleDrift {
+  0% { transform: translateY(0) translateX(0); opacity: 0.2; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(-120px) translateX(30px); opacity: 0; }
+}
+
+.glass-table {
+  --el-table-bg-color: transparent;
+  --el-table-tr-bg-color: transparent;
+  --el-table-header-bg-color: rgba(248, 250, 252, 0.8);
+  --el-table-row-hover-bg-color: rgba(59, 130, 246, 0.06);
+  --el-table-border-color: rgba(226, 232, 240, 0.8);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
