@@ -319,10 +319,14 @@ function loadModel(url) {
 
 async function bootstrap() {
   try {
+    console.log('1. bootstrap start (HouseScene)')
     initScene()
+    console.log('2. initScene done (HouseScene)')
     initRenderer()
+    console.log('3. initRenderer done (HouseScene)')
 
     modelRoot = await loadModel(props.modelPath)
+    console.log('4. model loaded')              // 新增
     fitModelToView(modelRoot)
     scene.add(modelRoot)
 
@@ -340,6 +344,7 @@ async function bootstrap() {
     loading.value = false
     animate()
   } catch (e) {
+    console.error('5. ERROR:', e)               // 新增，用来捕获错误
     loadError.value = `模型加载失败: ${props.modelPath}`
     loading.value = false
   }

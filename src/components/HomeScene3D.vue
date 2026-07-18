@@ -261,19 +261,22 @@ function initCameraAndControls(width, height, domElement) {
   }, 100)
 }
 
-function initScene() {
-    console.log('🚀 initScene 开始执行') // 新增
-    scene = new THREE.Scene()
-    scene.background = null
-    console.log('✅ 场景已创建，scene 对象:', scene) // 新增
+async function bootstrap() {
+  try {
+    console.log('1. bootstrap start')    // 新增
+    initScene()
+    console.log('2. initScene done')     // 新增
+    initRenderer()
+    console.log('3. initRenderer done')  // 新增
 
-    ambientLight = new THREE.AmbientLight(0xffffff, AMBIENT_OFF)
-    scene.add(ambientLight)
-
-    directionalLight = new THREE.DirectionalLight(0xffffff, DIRECTIONAL_OFF)
-    directionalLight.position.set(5, 10, 5)
-    scene.add(directionalLight)
-    console.log('💡 光照已添加') // 新增
+    modelRoot = await loadModel(props.modelPath)
+    console.log('4. model loaded')       // 新增
+    // ... 其余代码不变
+  } catch (e) {
+    console.error('5. error:', e)        // 新增
+    loadError.value = '模型加载失败: ' + props.modelPath
+    loading.value = false
+  }
 }
 
 function initRenderer() {
