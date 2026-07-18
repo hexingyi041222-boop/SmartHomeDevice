@@ -22,8 +22,10 @@ jobs:
         run: |
           npm run build
           mkdir -p dist/models
+          # 从 LFS 拉取文件
           git lfs pull
-          cp public/models/scene.glb dist/models/scene.glb || true
+          # 复制模型文件
+          cp public/models/scene.glb dist/models/scene.glb || echo "File not found"
           ls -la dist/models/
         
       - name: Upload artifact
