@@ -18,7 +18,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
 const props = defineProps({
-  modelPath: { type: String, default: '/models/scene.glb' },
+  modelPath: { type: String, default: '/SmartHomeDevice/models/scene.glb' },
   lightOn: { type: Boolean, default: false },
   doorOpen: { type: Boolean, default: false },
   acOn: { type: Boolean, default: false },
