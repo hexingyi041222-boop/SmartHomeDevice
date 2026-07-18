@@ -263,17 +263,43 @@ function initCameraAndControls(width, height, domElement) {
 
 async function bootstrap() {
   try {
-    console.log('1. bootstrap start')    // 新增
+    console.log('1. bootstrap start')
     initScene()
-    console.log('2. initScene done')     // 新增
+    console.log('2. initScene done')
     initRenderer()
-    console.log('3. initRenderer done')  // 新增
+    console.log('3. initRenderer done')
 
-    modelRoot = await loadModel(props.modelPath)
-    console.log('4. model loaded')       // 新增
-    // ... 其余代码不变
+    // 直接用 fetch 加载模型
+    const response = await fetch(props.modelPath)
+    if (!response.ok) throw new Error('Network response was not ok')
+    const buffer = await response.arrayBuffer()
+    console.log('4. model loaded, size:', buffer.byteLength)
+
+    const loader = new GLTFLoader()
+    const gltf = await new Promise((resolve, reject) => {
+      loader.parse(buffer, '', resolve, reject)
+    })
+    modelRoot = gltf.scene
+    console.log('5. model parsed successfully')
+
+    fitModelToView(modelRoot)
+    scene.add(modelRoot)
+
+    findLampMeshes(modelRoot)
+    lampMeshes.forEach((mesh) => ensureMeshMaterial(mesh))
+    setupRealDoor(modelRoot)
+
+    mountDebugGlobals(modelRoot)
+
+    applyLightState(props.lightOn)
+    if (props.doorOpen) {
+      applyDoorState(true)
+    }
+
+    loading.value = false
+    animate()
   } catch (e) {
-    console.error('5. error:', e)        // 新增
+    console.error('5. ERROR:', e)
     loadError.value = '模型加载失败: ' + props.modelPath
     loading.value = false
   }
