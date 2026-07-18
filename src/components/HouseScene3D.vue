@@ -319,14 +319,25 @@ function loadModel(url) {
 
 async function bootstrap() {
   try {
-    console.log('1. bootstrap start (HouseScene)')
+    console.log('1. bootstrap start')
     initScene()
-    console.log('2. initScene done (HouseScene)')
+    console.log('2. initScene done')
     initRenderer()
-    console.log('3. initRenderer done (HouseScene)')
+    console.log('3. initRenderer done')
 
-    modelRoot = await loadModel(props.modelPath)
-    console.log('4. model loaded')              // 新增
+    // 直接用 fetch 加载模型
+    const response = await fetch(props.modelPath)
+    if (!response.ok) throw new Error('Network response was not ok')
+    const buffer = await response.arrayBuffer()
+    console.log('4. model loaded, size:', buffer.byteLength)
+
+    const loader = new GLTFLoader()
+    const gltf = await new Promise((resolve, reject) => {
+      loader.parse(buffer, '', resolve, reject)
+    })
+    modelRoot = gltf.scene
+    console.log('5. model parsed successfully')
+
     fitModelToView(modelRoot)
     scene.add(modelRoot)
 
@@ -344,12 +355,11 @@ async function bootstrap() {
     loading.value = false
     animate()
   } catch (e) {
-    console.error('5. ERROR:', e)               // 新增，用来捕获错误
-    loadError.value = `模型加载失败: ${props.modelPath}`
+    console.error('5. ERROR:', e)
+    loadError.value = '模型加载失败: ' + props.modelPath
     loading.value = false
   }
 }
-
 function animate() {
   animationId = requestAnimationFrame(animate)
 
