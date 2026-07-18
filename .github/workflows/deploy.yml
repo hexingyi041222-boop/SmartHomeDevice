@@ -22,8 +22,9 @@ jobs:
         run: |
           npm run build
           mkdir -p dist/models
-          cp public/models/scene.glb dist/models/scene.glb
-          cp public/models/scene.zip dist/models/scene.zip
+          git lfs pull
+          cp public/models/scene.glb dist/models/scene.glb || true
+          ls -la dist/models/
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
