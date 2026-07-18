@@ -308,19 +308,19 @@ function loadModel(url) {
 
 async function bootstrap() {
   try {
-    console.log('🌟 bootstrap 开始执行') // 新增
+    console.log('[DEBUG] bootstrap started')
     initScene()
-    console.log('✅ initScene 执行完毕') // 新增
+    console.log('[DEBUG] initScene done')
     initRenderer()
-    console.log('✅ initRenderer 执行完毕') // 新增
+    console.log('[DEBUG] initRenderer done')
 
     modelRoot = await loadModel(props.modelPath)
-    console.log('✅ 模型加载完成，modelRoot:', modelRoot) // 新增
+    console.log('[DEBUG] model loaded:', modelRoot)
 
     // ... 其余代码不变
   } catch (e) {
-    console.error('❌ bootstrap 捕获到错误:', e) // 新增，更详细的错误日志
-    loadError.value = `模型加载失败: ${props.modelPath}`
+    console.error('[DEBUG] error:', e)
+    loadError.value = '模型加载失败: ' + props.modelPath
     loading.value = false
   }
 }
