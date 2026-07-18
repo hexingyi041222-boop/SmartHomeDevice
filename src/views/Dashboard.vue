@@ -252,7 +252,7 @@ const currentTime = ref('')
 const activeNav = ref('dashboard')
 
 /** GLB 模型路径（文件放在 public/models/ 下） */
-const modelPath = ref('/SmartHomeDevice/models/scene.glb')
+const modelPath = ref('https://github.com/hexingyi041222-boop/SmartHomeDevice/releases/download/v1.0/scene.glb')
 
 const latestTemperature = ref(null)
 const latestHumidity = ref(null)
