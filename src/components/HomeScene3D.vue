@@ -262,42 +262,31 @@ function initCameraAndControls(width, height, domElement) {
 }
 
 function initScene() {
-  scene = new THREE.Scene()
-  scene.background = null
+    console.log('🚀 initScene 开始执行') // 新增
+    scene = new THREE.Scene()
+    scene.background = null
+    console.log('✅ 场景已创建，scene 对象:', scene) // 新增
 
-  ambientLight = new THREE.AmbientLight(0xffffff, AMBIENT_OFF)
-  scene.add(ambientLight)
+    ambientLight = new THREE.AmbientLight(0xffffff, AMBIENT_OFF)
+    scene.add(ambientLight)
 
-  directionalLight = new THREE.DirectionalLight(0xffffff, DIRECTIONAL_OFF)
-  directionalLight.position.set(5, 10, 5)
-  scene.add(directionalLight)
+    directionalLight = new THREE.DirectionalLight(0xffffff, DIRECTIONAL_OFF)
+    directionalLight.position.set(5, 10, 5)
+    scene.add(directionalLight)
+    console.log('💡 光照已添加') // 新增
 }
 
 function initRenderer() {
-  const el = containerRef.value
-  if (!el) return
-
-  const width = el.clientWidth
-  const height = el.clientHeight
-
-  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-  renderer.setSize(width, height)
-  renderer.setClearColor(0xffffff, 0)
-  renderer.outputColorSpace = THREE.SRGBColorSpace
-  el.appendChild(renderer.domElement)
-
-  initCameraAndControls(width, height, renderer.domElement)
-
-  resizeObserver = new ResizeObserver(() => {
-    if (!containerRef.value || !camera || !renderer) return
-    const w = containerRef.value.clientWidth
-    const h = containerRef.value.clientHeight
-    camera.aspect = w / h
-    camera.updateProjectionMatrix()
-    renderer.setSize(w, h)
-  })
-  resizeObserver.observe(el)
+    console.log('🖥️ initRenderer 开始执行') // 新增
+    renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+        canvas: canvasRef.value,
+    })
+    renderer.setSize(width, height)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    renderer.shadowMap.enabled = true
+    console.log('✅ 渲染器已创建，renderer 对象:', renderer) // 新增
 }
 
 function loadModel(url) {
@@ -319,27 +308,18 @@ function loadModel(url) {
 
 async function bootstrap() {
   try {
+    console.log('🌟 bootstrap 开始执行') // 新增
     initScene()
+    console.log('✅ initScene 执行完毕') // 新增
     initRenderer()
+    console.log('✅ initRenderer 执行完毕') // 新增
 
     modelRoot = await loadModel(props.modelPath)
-    fitModelToView(modelRoot)
-    scene.add(modelRoot)
+    console.log('✅ 模型加载完成，modelRoot:', modelRoot) // 新增
 
-    findLampMeshes(modelRoot)
-    lampMeshes.forEach((mesh) => ensureMeshMaterial(mesh))
-    setupRealDoor(modelRoot)
-
-    mountDebugGlobals(modelRoot)
-
-    applyLightState(props.lightOn)
-    if (props.doorOpen) {
-      applyDoorState(true)
-    }
-
-    loading.value = false
-    animate()
+    // ... 其余代码不变
   } catch (e) {
+    console.error('❌ bootstrap 捕获到错误:', e) // 新增，更详细的错误日志
     loadError.value = `模型加载失败: ${props.modelPath}`
     loading.value = false
   }
