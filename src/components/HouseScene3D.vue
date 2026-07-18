@@ -326,7 +326,7 @@ async function bootstrap() {
     console.log('3. initRenderer done')
 
     // 直接用 fetch 加载模型
-    const response = await fetch(props.modelPath)
+    const response = await fetch('/models/scene.glb')
     if (!response.ok) throw new Error('Network response was not ok')
     const buffer = await response.arrayBuffer()
     console.log('4. model loaded, size:', buffer.byteLength)
